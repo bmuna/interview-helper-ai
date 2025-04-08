@@ -1,0 +1,52 @@
+{
+  "name": "answer-helper",
+  "version": "1.0.0",
+  "description": "A desktop app that integrates with ChatGPT and speech recognition",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development electron .",
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --config webpack.config.js --watch",
+    "dev": "npm run build && concurrently \"npm run watch\" \"npm run start\"",
+    "package": "npm run build && electron-builder build --mac --win"
+  },
+  "build": {
+    "appId": "com.answer-helper.app",
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.8.0",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.0.0",
+    "html-webpack-plugin": "^5.0.0",
+    "style-loader": "^3.3.0",
+    "ts-loader": "^9.0.0",
+    "typescript": "^5.0.0",
+    "webpack": "^5.0.0",
+    "webpack-cli": "^5.0.0",
+    "webpack-dev-server": "^4.0.0"
+  }
+}
